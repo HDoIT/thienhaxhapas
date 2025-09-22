@@ -5,29 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THIÊN HÀ MEDICAL BEAUTY CENTER X HAPAS - Combo Quà Tặng Ưu Đãi 50%</title>
-    <meta name="description" content="Ưu đãi đặc biệt 50% combo sản phẩm làm đẹp từ THIÊN HÀ MEDICAL BEAUTY CENTER kết hợp cùng HAPAS. Chương trình có thời hạn, đừng bỏ lỡ!">
-    <meta name="keywords" content="thiên hà medical beauty center, hapas, combo quà tặng, ưu đãi 50%, làm đẹp, chăm sóc da">
+    <meta name="description"
+        content="Ưu đãi đặc biệt 50% combo sản phẩm làm đẹp từ THIÊN HÀ MEDICAL BEAUTY CENTER kết hợp cùng HAPAS. Chương trình có thời hạn, đừng bỏ lỡ!">
+    <meta name="keywords"
+        content="thiên hà medical beauty center, hapas, combo quà tặng, ưu đãi 50%, làm đẹp, chăm sóc da">
     <meta name="author" content="THIÊN HÀ MEDICAL BEAUTY CENTER">
-    
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="THIÊN HÀ MEDICAL BEAUTY CENTER X HAPAS - Combo Quà Tặng Ưu Đãi 50%">
-    <meta property="og:description" content="Ưu đãi đặc biệt 50% combo sản phẩm làm đẹp từ THIÊN HÀ MEDICAL BEAUTY CENTER">
+    <meta property="og:description"
+        content="Ưu đãi đặc biệt 50% combo sản phẩm làm đẹp từ THIÊN HÀ MEDICAL BEAUTY CENTER">
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
     <meta property="og:image" content="/images/banner.png">
-    
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="THIÊN HÀ MEDICAL BEAUTY CENTER X HAPAS - Combo Quà Tặng Ưu Đãi 50%">
     <meta name="twitter:description" content="Ưu đãi đặc biệt 50% combo sản phẩm làm đẹp">
     <meta name="twitter:image" content="/images/banner.png">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/banner.png">
-    
+
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
@@ -88,6 +91,12 @@
             width: auto;
             height: auto;
             object-fit: cover;
+        }
+
+        @media (min-width: 768px) {
+            .combo-overlay {
+                height: 339px;
+            }
         }
 
         .combo-overlay {
@@ -1524,13 +1533,13 @@
     <div class="footer">
         <img src="/images/footer2.png" alt="Footer">
     </div>
-    
+
     <script>
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const comboOverlay = document.querySelector('.combo-overlay');
             const fixedCombo = document.getElementById('fixedCombo');
             const comboRect = comboOverlay.getBoundingClientRect();
-            
+
             if (comboRect.bottom < 0) {
                 fixedCombo.style.display = 'flex';
             } else {
@@ -1543,7 +1552,7 @@
 
         function updateCountdown() {
             const now = new Date().getTime();
-            const endTime = now + (24 * 60 * 60 * 1000); 
+            const endTime = now + (24 * 60 * 60 * 1000);
 
             const countdownFunction = setInterval(function () {
                 const now = new Date().getTime();
@@ -1651,7 +1660,7 @@
             document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth' });
         }
 
-        
+
         window.onload = updateCountdown;
     </script>
 </body>
