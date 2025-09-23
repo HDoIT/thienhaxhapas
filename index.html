@@ -70,14 +70,14 @@
             scroll-behavior: smooth;
             overflow-x: hidden;
             background: linear-gradient(135deg, rgba(173, 216, 230, 0.9) 0%, rgba(255, 182, 193, 0.9) 100%);
-
+            text-align: center;
         }
 
         .stage {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 100%;
+            width: 430px;
             min-height: 100vh;
             background: #111;
             overflow: hidden;
@@ -86,7 +86,7 @@
 
         .stage img {
             display: block;
-            max-width: 100%;
+            max-width: 430px;
             max-height: 100%;
             width: auto;
             height: auto;
@@ -1222,6 +1222,503 @@
                 opacity: 1;
             }
         }
+
+
+        /* Box styles với animation nâng cao */
+        .box {
+            position: absolute;
+            width: 242px;
+            height: 278px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            animation:
+                complexPulse 6s infinite ease-in-out,
+                borderRun 4s infinite linear,
+                shimmer 5s infinite linear,
+                float 7s infinite ease-in-out;
+            box-shadow:
+                0 0 20px rgba(8, 97, 8, 0.3),
+                inset 0 0 30px rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            overflow: hidden;
+        }
+
+        .box1 {
+            position: absolute;
+            width: 140px;
+            height: 135px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            animation:
+                complexPulse 5s infinite ease-in-out,
+                borderRun 3s infinite linear,
+                shimmer 4s infinite linear,
+                float 6s infinite ease-in-out;
+            box-shadow:
+                0 0 15px rgba(8, 97, 8, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            overflow: hidden;
+        }
+
+        .box2 {
+            position: absolute;
+            width: 140px;
+            height: 135px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            animation:
+                complexPulse 4s infinite ease-in-out,
+                borderRun 3.5s infinite linear,
+                shimmer 4.5s infinite linear,
+                float 5.5s infinite ease-in-out;
+            box-shadow:
+                0 0 15px rgba(8, 97, 8, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            overflow: hidden;
+        }
+
+        /* Hiệu ứng rung rinh và biến đổi */
+        @keyframes complexPulse {
+
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.3;
+                filter: hue-rotate(0deg) contrast(100%);
+            }
+
+            25% {
+                transform: scale(1.02) rotate(0.3deg);
+                opacity: 0.5;
+                filter: hue-rotate(45deg) contrast(110%);
+            }
+
+            50% {
+                transform: scale(1.05) rotate(0deg);
+                opacity: 0.7;
+                filter: hue-rotate(90deg) contrast(120%);
+            }
+
+            75% {
+                transform: scale(1.02) rotate(-0.3deg);
+                opacity: 0.5;
+                filter: hue-rotate(45deg) contrast(110%);
+            }
+        }
+
+        /* Hiệu ứng viền chấm chạy */
+        @keyframes borderRun {
+            0% {
+                box-shadow:
+                    0 0 0 0 rgba(0, 184, 148, 0.8),
+                    0 0 0 0 rgba(9, 132, 227, 0.8),
+                    inset 0 0 20px rgba(255, 255, 255, 0.05);
+            }
+
+            25% {
+                box-shadow:
+                    2px -2px 0 2px rgba(0, 184, 148, 0.8),
+                    -2px 2px 0 2px rgba(9, 132, 227, 0.8),
+                    inset 0 0 20px rgba(255, 255, 255, 0.05);
+            }
+
+            50% {
+                box-shadow:
+                    0 -4px 0 4px rgba(0, 184, 148, 0.8),
+                    0 4px 0 4px rgba(9, 132, 227, 0.8),
+                    inset 0 0 20px rgba(255, 255, 255, 0.05);
+            }
+
+            75% {
+                box-shadow:
+                    -2px -2px 0 2px rgba(0, 184, 148, 0.8),
+                    2px 2px 0 2px rgba(9, 132, 227, 0.8),
+                    inset 0 0 20px rgba(255, 255, 255, 0.05);
+            }
+
+            100% {
+                box-shadow:
+                    0 0 0 0 rgba(0, 184, 148, 0.8),
+                    0 0 0 0 rgba(9, 132, 227, 0.8),
+                    inset 0 0 20px rgba(255, 255, 255, 0.05);
+            }
+        }
+
+        /* Hiệu ứng bóng loáng */
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        /* Hiệu ứng nổi lên chìm xuống */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Tạo hiệu ứng lấp lánh bên trong */
+        .box::before,
+        .box1::before,
+        .box2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.2),
+                    transparent);
+            animation: shine 4s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+
+            20%,
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* Tạo hiệu ứng lệch nhịp cho mỗi box */
+        .box:nth-child(1) {
+            animation-delay: 0s, 0s, 0s, 0s;
+        }
+
+        .box1:nth-child(2) {
+            animation-delay: 0.3s, 0.5s, 0.7s, 0.2s;
+        }
+
+        .box2:nth-child(3) {
+            animation-delay: 0.6s, 1s, 1.4s, 0.4s;
+        }
+
+        .box:nth-child(4) {
+            animation-delay: 0.9s, 1.5s, 2.1s, 0.6s;
+        }
+
+        .box1:nth-child(5) {
+            animation-delay: 1.2s, 2s, 2.8s, 0.8s;
+        }
+
+        .box2:nth-child(6) {
+            animation-delay: 1.5s, 2.5s, 3.5s, 1s;
+        }
+
+        .box:nth-child(7) {
+            animation-delay: 1.8s, 3s, 4.2s, 1.2s;
+        }
+
+        .box1:nth-child(8) {
+            animation-delay: 2.1s, 3.5s, 4.9s, 1.4s;
+        }
+
+        .box2:nth-child(9) {
+            animation-delay: 2.4s, 4s, 5.6s, 1.6s;
+        }
+
+        .box:nth-child(10) {
+            animation-delay: 2.7s, 4.5s, 6.3s, 1.8s;
+        }
+
+        .box1:nth-child(11) {
+            animation-delay: 3s, 5s, 7s, 2s;
+        }
+
+        .box2:nth-child(12) {
+            animation-delay: 3.3s, 5.5s, 7.7s, 2.2s;
+        }
+
+        .box:nth-child(13) {
+            animation-delay: 3.6s, 6s, 8.4s, 2.4s;
+        }
+
+        .box1:nth-child(14) {
+            animation-delay: 3.9s, 6.5s, 9.1s, 2.6s;
+        }
+
+        .box2:nth-child(15) {
+            animation-delay: 4.2s, 7s, 9.8s, 2.8s;
+        }
+
+        .box:nth-child(16) {
+            animation-delay: 4.5s, 7.5s, 10.5s, 3s;
+        }
+
+        .box1:nth-child(17) {
+            animation-delay: 4.8s, 8s, 11.2s, 3.2s;
+        }
+
+        .box2:nth-child(18) {
+            animation-delay: 5.1s, 8.5s, 11.9s, 3.4s;
+        }
+
+        .box:nth-child(19) {
+            animation-delay: 5.4s, 9s, 12.6s, 3.6s;
+        }
+
+        .box1:nth-child(20) {
+            animation-delay: 5.7s, 9.5s, 13.3s, 3.8s;
+        }
+
+        .box2:nth-child(21) {
+            animation-delay: 6s, 10s, 14s, 4s;
+        }
+
+        .box:nth-child(22) {
+            animation-delay: 6.3s, 10.5s, 14.7s, 4.2s;
+        }
+
+        .box1:nth-child(23) {
+            animation-delay: 6.6s, 11s, 15.4s, 4.4s;
+        }
+
+        .box2:nth-child(24) {
+            animation-delay: 6.9s, 11.5s, 16.1s, 4.6s;
+        }
+
+        .box:nth-child(25) {
+            animation-delay: 7.2s, 12s, 16.8s, 4.8s;
+        }
+
+        .box1:nth-child(26) {
+            animation-delay: 7.5s, 12.5s, 17.5s, 5s;
+        }
+
+        .box2:nth-child(27) {
+            animation-delay: 7.8s, 13s, 18.2s, 5.2s;
+        }
+
+        .box:nth-child(28) {
+            animation-delay: 8.1s, 13.5s, 18.9s, 5.4s;
+        }
+
+        .box1:nth-child(29) {
+            animation-delay: 8.4s, 14s, 19.6s, 5.6s;
+        }
+
+        .box2:nth-child(30) {
+            animation-delay: 8.7s, 14.5s, 20.3s, 5.8s;
+        }
+
+        .box:nth-child(31) {
+            animation-delay: 9s, 15s, 21s, 6s;
+        }
+
+        .box1:nth-child(32) {
+            animation-delay: 9.3s, 15.5s, 21.7s, 6.2s;
+        }
+
+        .box2:nth-child(33) {
+            animation-delay: 9.6s, 16s, 22.4s, 6.4s;
+        }
+
+        /* Thêm các chấm chạy xung quanh viền */
+        .box::after,
+        .box1::after,
+        .box2::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 12px;
+            background:
+                radial-gradient(circle at top left, #eafffb, transparent 85%),
+                radial-gradient(circle at top right, #cae8ff, transparent 85%),
+                radial-gradient(circle at bottom left, #d2fffe, transparent 85%),
+                radial-gradient(circle at bottom right, #dcd7ff, transparent 85%);
+            z-index: -1;
+            opacity: 0.7;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Hiệu ứng khi hover */
+        .box:hover,
+        .box1:hover,
+        .box2:hover {
+            animation-play-state: paused;
+            transform: scale(1.1);
+            filter: brightness(1.5);
+            transition: all 0.3s ease;
+        }
+        @media (max-width: 768px) {
+            .box:nth-child(1) { top: 651px; left: 20px; }
+            .box1:nth-child(2) { top: 654px; left: 273px; }
+            .box2:nth-child(3) { top: 797px; left: 272px; }
+            
+            .box:nth-child(4) { top: 1051px; left: 20px; }
+            .box1:nth-child(5) { top: 1047px; left: 273px; }
+            .box2:nth-child(6) { top: 1203px; left: 272px; }
+            
+            .box:nth-child(7) { top: 1444px; left: 20px; }
+            .box1:nth-child(8) { top: 1442px; left: 273px; }
+            .box2:nth-child(9) { top: 1592px; left: 272px; }
+            
+            .box:nth-child(10) { top: 1844px; left: 20px; }
+            .box1:nth-child(11) { top: 1850px; left: 273px; }
+            .box2:nth-child(12) { top: 2000px; left: 272px; }
+            
+            .box:nth-child(13) { top: 2244px; left: 20px; }
+            .box1:nth-child(14) { top: 2233px; left: 273px; }
+            .box2:nth-child(15) { top: 2381px; left: 272px; }
+            
+            .box:nth-child(16) { top: 2634px; left: 20px; }
+            .box1:nth-child(17) { top: 2633px; left: 273px; }
+            .box2:nth-child(18) { top: 2786px; left: 272px; }
+            
+            .box:nth-child(19) { top: 3029px; left: 20px; }
+            .box1:nth-child(20) { top: 3050px; left: 273px; }
+            .box2:nth-child(21) { top: 3200px; left: 272px; }
+            
+            .box:nth-child(22) { top: 3430px; left: 20px; }
+            .box1:nth-child(23) { top: 3428px; left: 273px; }
+            .box2:nth-child(24) { top: 3575px; left: 272px; }
+            
+            .box:nth-child(25) { top: 3825px; left: 20px; }
+            .box1:nth-child(26) { top: 3827px; left: 273px; }
+            .box2:nth-child(27) { top: 3970px; left: 272px; }
+            
+            .box:nth-child(28) { top: 4285px; left: 20px; }
+            .box1:nth-child(29) { top: 4282px; left: 273px; }
+            .box2:nth-child(30) { top: 4432px; left: 272px; }
+            
+            .box:nth-child(31) { top: 4743px; left: 20px; }
+            .box1:nth-child(32) { top: 4744px; left: 273px; }
+            .box2:nth-child(33) { top: 4888px; left: 272px; }
+        }
+
+        /* Tablet positions */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .box, .box1, .box2 {
+                transform: scale(0.8);
+            }
+            
+            .box:nth-child(1) { top: 500px; left: 50px; }
+            .box1:nth-child(2) { top: 520px; left: 320px; }
+            .box2:nth-child(3) { top: 650px; left: 320px; }
+            
+            .box:nth-child(4) { top: 800px; left: 50px; }
+            .box1:nth-child(5) { top: 820px; left: 320px; }
+            .box2:nth-child(6) { top: 950px; left: 320px; }
+            
+            .box:nth-child(7) { top: 1100px; left: 50px; }
+            .box1:nth-child(8) { top: 1120px; left: 320px; }
+            .box2:nth-child(9) { top: 1250px; left: 320px; }
+            
+            .box:nth-child(10) { top: 1400px; left: 50px; }
+            .box1:nth-child(11) { top: 1420px; left: 320px; }
+            .box2:nth-child(12) { top: 1550px; left: 320px; }
+            
+            .box:nth-child(13) { top: 1700px; left: 50px; }
+            .box1:nth-child(14) { top: 1720px; left: 320px; }
+            .box2:nth-child(15) { top: 1850px; left: 320px; }
+            
+            .box:nth-child(16) { top: 2000px; left: 50px; }
+            .box1:nth-child(17) { top: 2020px; left: 320px; }
+            .box2:nth-child(18) { top: 2150px; left: 320px; }
+            
+            .box:nth-child(19) { top: 2300px; left: 50px; }
+            .box1:nth-child(20) { top: 2320px; left: 320px; }
+            .box2:nth-child(21) { top: 2450px; left: 320px; }
+            
+            .box:nth-child(22) { top: 2600px; left: 50px; }
+            .box1:nth-child(23) { top: 2620px; left: 320px; }
+            .box2:nth-child(24) { top: 2750px; left: 320px; }
+            
+            .box:nth-child(25) { top: 2900px; left: 50px; }
+            .box1:nth-child(26) { top: 2920px; left: 320px; }
+            .box2:nth-child(27) { top: 3050px; left: 320px; }
+            
+            .box:nth-child(28) { top: 3200px; left: 50px; }
+            .box1:nth-child(29) { top: 3220px; left: 320px; }
+            .box2:nth-child(30) { top: 3350px; left: 320px; }
+            
+            .box:nth-child(31) { top: 3500px; left: 50px; }
+            .box1:nth-child(32) { top: 3520px; left: 320px; }
+            .box2:nth-child(33) { top: 3650px; left: 320px; }
+        }
+
+        /* Desktop positions */
+        @media (min-width: 1025px) {
+            .box:nth-child(1) { top: 651px; left: 100px; }
+            .box1:nth-child(2) { top: 654px; left: 400px; }
+            .box2:nth-child(3) { top: 797px; left: 400px; }
+            
+            .box:nth-child(4) { top: 1051px; left: 100px; }
+            .box1:nth-child(5) { top: 1047px; left: 400px; }
+            .box2:nth-child(6) { top: 1203px; left: 400px; }
+            
+            .box:nth-child(7) { top: 1444px; left: 100px; }
+            .box1:nth-child(8) { top: 1442px; left: 400px; }
+            .box2:nth-child(9) { top: 1592px; left: 400px; }
+            
+            .box:nth-child(10) { top: 1844px; left: 100px; }
+            .box1:nth-child(11) { top: 1850px; left: 400px; }
+            .box2:nth-child(12) { top: 2000px; left: 400px; }
+            
+            .box:nth-child(13) { top: 2244px; left: 100px; }
+            .box1:nth-child(14) { top: 2233px; left: 400px; }
+            .box2:nth-child(15) { top: 2381px; left: 400px; }
+            
+            .box:nth-child(16) { top: 2634px; left: 100px; }
+            .box1:nth-child(17) { top: 2633px; left: 400px; }
+            .box2:nth-child(18) { top: 2786px; left: 400px; }
+            
+            .box:nth-child(19) { top: 3029px; left: 100px; }
+            .box1:nth-child(20) { top: 3050px; left: 400px; }
+            .box2:nth-child(21) { top: 3200px; left: 400px; }
+            
+            .box:nth-child(22) { top: 3430px; left: 100px; }
+            .box1:nth-child(23) { top: 3428px; left: 400px; }
+            .box2:nth-child(24) { top: 3575px; left: 400px; }
+            
+            .box:nth-child(25) { top: 3825px; left: 100px; }
+            .box1:nth-child(26) { top: 3827px; left: 400px; }
+            .box2:nth-child(27) { top: 3970px; left: 400px; }
+            
+            .box:nth-child(28) { top: 4285px; left: 100px; }
+            .box1:nth-child(29) { top: 4282px; left: 400px; }
+            .box2:nth-child(30) { top: 4432px; left: 400px; }
+            
+            .box:nth-child(31) { top: 4743px; left: 100px; }
+            .box1:nth-child(32) { top: 4744px; left: 400px; }
+            .box2:nth-child(33) { top: 4888px; left: 400px; }
+        }
+
+        
     </style>
 </head>
 
@@ -1229,10 +1726,9 @@
     <div class="stage">
         <img src="/images/160925_Landing page_3471-vi_page-0001.jpg" alt="COMBO QUÀ TẶNG - Ưu đãi 50%">
 
-        <div class="combo-overlay">
+        <!-- <div class="combo-overlay">
             <div class="combo-title">
                 <div class="combo-text">COMBO QUÀ TẶNG</div>
-                <!-- <div class="divider"></div> -->
                 <div class="discount-text">ƯU ĐÃI 50%</div>
             </div>
 
@@ -1252,10 +1748,10 @@
             </div>
 
             <button class="order-btn" onclick="scrollToForm()">ĐẶT HÀNG NGAY</button>
-        </div>
+        </div> -->
     </div>
 
-    <div class="fixed-combo" id="fixedCombo">
+    <!-- <div class="fixed-combo" id="fixedCombo">
         <div class="fixed-combo-left">
             <div class="fixed-combo-text">COMBO QUÀ TẶNG</div>
             <div class="fixed-divider"></div>
@@ -1276,9 +1772,9 @@
             </div>
         </div>
         <button class="fixed-order-btn" onclick="scrollToForm()">ĐẶT HÀNG NGAY</button>
-    </div>
+    </div> -->
 
-    <div class="form-register" id="orderForm">
+    <!-- <div class="form-register" id="orderForm">
         <div class="form-container">
             <h2 class="form-title">ĐĂNG KÝ NHẬN ƯU ĐÃI 50%</h2>
 
@@ -1412,7 +1908,7 @@
                 <button type="submit" class="btn-submit">ĐẶT HÀNG NGAY - TIẾT KIỆM 50%</button>
             </form>
         </div>
-    </div>
+    </div> -->
 
     <div class="reviews-section">
         <div class="reviews-header">KHÁCH HÀNG NHẬN XÉT</div>
@@ -1529,6 +2025,58 @@
             </button>
         </div>
     </div>
+
+    <div class="box" style="top: 651px;
+    left: 20px;"></div>
+    <div class="box1" style="top:654px; left:273px;"></div>
+    <div class="box2" style="top:797px; left:272px;"></div>
+
+    <div class="box" style="top:1051px; left:20px;"></div>
+    <div class="box1" style="top:1047px; left:273px;"></div>
+    <div class="box2" style="top:1203px; left:272px;"></div>
+
+    <div class="box" style="top:1444px; left:20px;"></div>
+    <div class="box1" style="top:1442px; left:273px;"></div>
+    <div class="box2" style="top:1592px; left:272px;"></div>
+
+    <div class="box" style="top:1844px; left:20px;"></div>
+    <div class="box1" style="top:1850px; left:273px;"></div>
+    <div class="box2" style="top:2000px; left:272px;"></div>
+
+
+    <div class="box" style="top:2244px; left:20px;"></div>
+    <div class="box1" style="top:2233px; left:273px;"></div>
+    <div class="box2" style="top:2381px; left:272px;"></div>
+
+
+    <div class="box" style="top:2634px; left:20px;"></div>
+    <div class="box1" style="top:2633px; left:273px;"></div>
+    <div class="box2" style="top:2786px; left:272px;"></div>
+
+
+    <div class="box" style="top:3029px; left:20px;"></div>
+    <div class="box1" style="top:3050px; left:273px;"></div>
+    <div class="box2" style="top:3200px; left:272px;"></div>
+
+
+    <div class="box" style="top:3430px; left:20px;"></div>
+    <div class="box1" style="top:3428px; left:273px;"></div>
+    <div class="box2" style="top:3575px; left:272px;"></div>
+
+
+    <div class="box" style="top:3825px; left:20px;"></div>
+    <div class="box1" style="top:3827px; left:273px;"></div>
+    <div class="box2" style="top:3970px; left:272px;"></div>
+
+
+    <div class="box" style="top:4285px; left:20px;"></div>
+    <div class="box1" style="top:4282px; left:273px;"></div>
+    <div class="box2" style="top:4432px; left:272px;"></div>
+
+
+    <div class="box" style="top:4743px; left:20px;"></div>
+    <div class="box1" style="top:4744px; left:273px;"></div>
+    <div class="box2" style="top:4888px; left:272px;"></div>
 
     <div class="footer">
         <img src="/images/footer2.png" alt="Footer">
