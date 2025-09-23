@@ -31,6 +31,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/banner.png">
 
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
@@ -57,6 +60,7 @@
       }
     }
     </script>
+    
     <style>
         * {
             box-sizing: border-box;
@@ -71,1158 +75,40 @@
             overflow-x: hidden;
             background: linear-gradient(135deg, rgba(173, 216, 230, 0.9) 0%, rgba(255, 182, 193, 0.9) 100%);
             text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 430px;
+            width: 100%;
+            position: relative;
+            margin: 0 auto;
         }
 
         .stage {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 430px;
+            width: 100%;
             min-height: 100vh;
             background: #111;
             overflow: hidden;
             position: relative;
+            margin: 0 auto;
         }
 
         .stage img {
             display: block;
-            max-width: 430px;
+            max-width: 100%;
             max-height: 100%;
             width: auto;
             height: auto;
             object-fit: cover;
         }
-
-        @media (min-width: 768px) {
-            .combo-overlay {
-                height: 339px !important;
-            }
-        }
-
-        .combo-overlay {
-            position: absolute;
-            top: 50px;
-            right: 50px;
-            width: 450px;
-            height: 110px;
-            background: linear-gradient(135deg, rgba(255, 182, 193, 0.95) 0%, rgba(173, 216, 230, 0.95) 100%);
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 15px 25px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            z-index: 10;
-            animation: float 6s ease-in-out infinite, glow-border 3s infinite alternate;
-            overflow: hidden;
-            border: 2px solid transparent;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0) rotate(0.5deg);
-            }
-
-            50% {
-                transform: translateY(-5px) rotate(-0.5deg);
-            }
-        }
-
-        @keyframes glow-border {
-            0% {
-                border-color: rgba(255, 255, 255, 0.3);
-            }
-
-            100% {
-                border-color: rgba(255, 255, 255, 0.7);
-            }
-        }
-
-        .combo-overlay::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
-            animation: shine 5s infinite linear;
-            z-index: -1;
-        }
-
-        @keyframes shine {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-        .combo-title {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 8px;
-            width: 100%;
-        }
-
-        .combo-text {
-            font-size: 28px;
-            font-weight: 900;
-            color: white;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-            letter-spacing: 1.5px;
-            line-height: 1;
-            text-align: center;
-            animation: textGlow 2s infinite alternate;
-            flex: 1;
-        }
-
-        @keyframes textGlow {
-            0% {
-                text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3), 0 0 8px rgba(255, 255, 255, 0.5);
-            }
-
-            100% {
-                text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.8);
-            }
-        }
-
-        .divider {
-            width: 2px;
-            height: 35px;
-            background: rgba(255, 255, 255, 0.5);
-            margin: 0 15px;
-            border-radius: 1px;
-        }
-
-        .discount-text {
-            font-size: 32px;
-            font-weight: 900;
-            background: linear-gradient(45deg, #ff0000, #ff6600, #ff0000);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            padding: 3px 10px;
-            border-radius: 8px;
-            animation: discountPulse 1.5s infinite, colorShift 4s infinite, discountShake 3s infinite;
-            text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
-            position: relative;
-            z-index: 2;
-            flex: 1;
-        }
-
-        @keyframes discountPulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        @keyframes colorShift {
-            0% {
-                filter: hue-rotate(0deg);
-            }
-
-            50% {
-                filter: hue-rotate(30deg);
-            }
-
-            100% {
-                filter: hue-rotate(0deg);
-            }
-        }
-
-        @keyframes discountShake {
-
-            0%,
-            90%,
-            93%,
-            96%,
-            100% {
-                transform: translateX(0) rotate(0);
-            }
-
-            91% {
-                transform: translateX(-1px) rotate(-0.5deg);
-            }
-
-            94% {
-                transform: translateX(1px) rotate(0.5deg);
-            }
-
-            97% {
-                transform: translateX(-1px) rotate(-0.5deg);
-            }
-        }
-
-        .discount-text::after {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            border-radius: 10px;
-            z-index: -1;
-            opacity: 0.7;
-            filter: blur(6px);
-            animation: glow 3s infinite;
-        }
-
-        @keyframes glow {
-
-            0%,
-            100% {
-                opacity: 0.5;
-            }
-
-            50% {
-                opacity: 0.8;
-            }
-        }
-
-        .countdown {
-            display: flex;
-            justify-content: center;
-            margin: 8px 0;
-            gap: 8px;
-        }
-
-        .countdown-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 6px 8px;
-            border-radius: 6px;
-            min-width: 55px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .countdown-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.7s;
-        }
-
-        .countdown-item:hover::before {
-            left: 100%;
-        }
-
-        .countdown-value {
-            font-size: 22px;
-            font-weight: 900;
-            color: white;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-            font-variant-numeric: tabular-nums;
-            transition: all 0.3s;
-            position: relative;
-            z-index: 2;
-        }
-
-        .countdown-value.flip {
-            animation: flip 0.5s ease-in-out;
-        }
-
-        @keyframes flip {
-            0% {
-                transform: rotateX(0);
-            }
-
-            50% {
-                transform: rotateX(90deg);
-            }
-
-            100% {
-                transform: rotateX(0);
-            }
-        }
-
-        .countdown-label {
-            font-size: 10px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 600;
-            margin-top: 2px;
-            letter-spacing: 0.5px;
-        }
-
-        .order-btn {
-            margin-top: 8px;
-            padding: 8px 20px;
-            background: linear-gradient(45deg, #ff3366, #ff9933);
-            color: white;
-            border: none;
-            border-radius: 40px;
-            font-size: 14px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.4s;
-            box-shadow: 0 4px 15px rgba(255, 51, 102, 0.6);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            animation: btnPulse 2s infinite, btnShake 5s infinite, btnGlow 3s infinite;
-            letter-spacing: 0.5px;
-        }
-
-        @keyframes btnPulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-                box-shadow: 0 4px 15px rgba(255, 51, 102, 0.6);
-            }
-
-            50% {
-                transform: scale(1.03);
-                box-shadow: 0 6px 20px rgba(255, 51, 102, 0.8);
-            }
-        }
-
-        @keyframes btnShake {
-
-            0%,
-            90%,
-            100% {
-                transform: translateX(0) rotate(0);
-            }
-
-            92% {
-                transform: translateX(-1px) rotate(-0.5deg);
-            }
-
-            94% {
-                transform: translateX(1px) rotate(0.5deg);
-            }
-
-            96% {
-                transform: translateX(-1px) rotate(-0.5deg);
-            }
-
-            98% {
-                transform: translateX(1px) rotate(0.5deg);
-            }
-        }
-
-        @keyframes btnGlow {
-
-            0%,
-            100% {
-                filter: brightness(1);
-            }
-
-            50% {
-                filter: brightness(1.15);
-            }
-        }
-
-        .order-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.7s;
-            z-index: -1;
-        }
-
-        .order-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(255, 51, 102, 0.9);
-            animation: none;
-        }
-
-        .order-btn:hover::before {
-            left: 100%;
-        }
-
-        .fixed-combo {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 500px;
-            height: 80px;
-            background: linear-gradient(135deg, rgba(255, 182, 193, 0.95) 0%, rgba(173, 216, 230, 0.95) 100%);
-            padding: 0 20px;
-            display: none;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            animation: slideUp 0.5s ease-out;
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateX(-50%) translateY(100px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(-50%) translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .fixed-combo-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .fixed-combo-text {
-            font-size: 18px;
-            font-weight: 800;
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-        }
-
-        .fixed-divider {
-            width: 1px;
-            height: 25px;
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        .fixed-discount {
-            font-size: 20px;
-            font-weight: 900;
-            background: linear-gradient(45deg, #ff0000, #ff6600);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: discountPulse 2s infinite;
-        }
-
-        .fixed-countdown {
-            display: flex;
-            gap: 5px;
-        }
-
-        .fixed-countdown-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 4px 6px;
-            border-radius: 5px;
-            min-width: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .fixed-countdown-value {
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .fixed-countdown-label {
-            font-size: 8px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .fixed-order-btn {
-            padding: 8px 18px;
-            background: linear-gradient(45deg, #ff3366, #ff9933);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 3px 10px rgba(255, 51, 102, 0.6);
-            animation: btnPulse 2s infinite;
-        }
-
-        .form-register {
-            min-height: 100vh;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, rgba(173, 216, 230, 0.9) 0%, rgba(255, 182, 193, 0.9) 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .form-register::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.05"><defs><pattern id="gift" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="8" fill="none" stroke="%23ff3366" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23gift)"/></svg>');
-            animation: float 20s infinite linear;
-        }
-
-        .form-container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 50px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            max-width: 700px;
-            width: 100%;
-            animation: slideUp 1s ease-out, formGlow 5s infinite alternate;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            position: relative;
-            z-index: 1;
-        }
-
-        @keyframes formGlow {
-            0% {
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            }
-
-            100% {
-                box-shadow: 0 20px 40px rgba(255, 51, 102, 0.2);
-            }
-        }
-
-        .form-title {
-            text-align: center;
-            margin-bottom: 40px;
-            color: #333;
-            font-size: 42px;
-            font-weight: 900;
-            background: linear-gradient(45deg, #ff3366, #ff9933);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-            padding-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .form-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 25%;
-            width: 50%;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, #ff3366, transparent);
-            border-radius: 2px;
-        }
-
-        .form-countdown {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0 30px;
-            gap: 12px;
-        }
-
-        .form-countdown-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 10px 12px;
-            border-radius: 10px;
-            min-width: 70px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .form-countdown-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.7s;
-        }
-
-        .form-countdown-item:hover::before {
-            left: 100%;
-        }
-
-        .form-countdown-value {
-            font-size: 32px;
-            font-weight: 900;
-            color: white;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-            font-variant-numeric: tabular-nums;
-            transition: all 0.3s;
-            position: relative;
-            z-index: 2;
-        }
-
-        .form-countdown-value.flip {
-            animation: flip 0.5s ease-in-out;
-        }
-
-        .form-countdown-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 600;
-            margin-top: 5px;
-            letter-spacing: 1px;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 700;
-            color: #555;
-            font-size: 18px;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 15px 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 16px;
-            transition: all 0.3s;
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        .form-input:focus {
-            border-color: #ff8ba7;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(255, 139, 167, 0.2);
-            background: white;
-            transform: translateY(-2px);
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 20px;
-            margin-top: 15px;
-        }
-
-        .product-checkbox {
-            display: none;
-        }
-
-        .product-label {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.4s;
-            text-align: center;
-            background: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-label::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 182, 193, 0.2), transparent);
-            transition: left 0.7s;
-        }
-
-        .product-checkbox:checked+.product-label {
-            border-color: #ff8ba7;
-            background-color: rgba(255, 139, 167, 0.1);
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-checkbox:checked+.product-label::before {
-            left: 100%;
-        }
-
-        .product-name {
-            font-weight: 700;
-            margin-top: 10px;
-            font-size: 18px;
-            color: #333;
-        }
-
-        .product-price {
-            margin-top: 8px;
-            font-size: 16px;
-            color: #ff8ba7;
-            font-weight: 800;
-        }
-
-        .product-price del {
-            color: #999;
-            margin-right: 5px;
-        }
-
-        .urgency-banner {
-            background: linear-gradient(135deg, rgba(173, 216, 230, 0.9) 0%, rgba(255, 182, 193, 0.9) 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            margin: 30px 0;
-            animation: flash 2s infinite, bannerPulse 3s infinite;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
-        }
-
-        @keyframes flash {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.9;
-            }
-        }
-
-        @keyframes bannerPulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.01);
-            }
-        }
-
-        .urgency-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: shine 3s infinite;
-        }
-
-        .urgency-text {
-            font-weight: 800;
-            font-size: 22px;
-            letter-spacing: 1px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, rgba(173, 216, 230, 0.9) 0%, rgba(255, 182, 193, 0.9) 100%);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 20px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.4s;
-            margin-top: 30px;
-            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.5);
-            position: relative;
-            overflow: hidden;
-            letter-spacing: 1px;
-        }
-
-        .btn-submit::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.7s;
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.7);
-        }
-
-        .btn-submit:hover::before {
-            left: 100%;
-        }
-
-        .btn-submit:active {
-            transform: translateY(1px);
-        }
-
-        @media (max-width: 768px) {
-            .stage {
-                min-height: 100vh;
-            }
-
-            .stage img {
-                width: 100%;
-                max-width: none;
-                max-height: none;
-                object-fit: cover;
-            }
-
-            .combo-overlay {
-                position: absolute;
-                top: 494px;
-                right: 20px;
-                left: 20px;
-                width: auto;
-                height: auto;
-                max-width: 100%;
-                padding: 6px;
-                flex-direction: column;
-                height: auto;
-            }
-
-            .combo-title {
-                gap: 8px;
-            }
-
-            .divider {
-                width: 80%;
-                height: 2px;
-                margin: 5px 0;
-            }
-
-            .combo-text {
-                font-size: 19px;
-            }
-
-            .discount-text {
-                font-size: 19px;
-            }
-
-            .countdown {
-                gap: 6px;
-                margin: 0px 0;
-            }
-
-            .countdown-item {
-                min-width: 50px;
-                padding: 0px 7px;
-            }
-
-            .countdown-value {
-                font-size: 16px;
-            }
-
-            .form-container {
-                padding: 25px;
-            }
-
-            .form-title {
-                font-size: 32px;
-            }
-
-            .form-countdown {
-                gap: 8px;
-            }
-
-            .form-countdown-item {
-                min-width: 60px;
-                padding: 8px 10px;
-            }
-
-            .form-countdown-value {
-                font-size: 26px;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-                gap: 15px;
-            }
-
-            .fixed-combo {
-                flex-direction: column;
-                height: auto;
-                padding: 10px;
-                gap: 10px;
-            }
-
-            .fixed-combo-left {
-                gap: 5px;
-                text-align: center;
-            }
-
-            .fixed-combo-text {
-                font-size: 16px;
-            }
-
-            .fixed-discount {
-                font-size: 18px;
-            }
-
-            .fixed-divider {
-                display: none;
-            }
-        }
-
-        .access-hidden {
-            position: absolute;
-            left: -9999px;
-            top: auto;
-            width: 1px;
-            height: 1px;
-            overflow: hidden;
-        }
-    </style>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-        }
-
-
-        .reviews-section {
-            max-width: 480px;
-            margin: 0 auto;
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-
-        .reviews-header {
-            background: linear-gradient(135deg, #7EC8F9, #4B7BEC);
-            color: white;
-            text-align: center;
-            padding: 16px;
-            font-weight: bold;
-            font-size: 20px;
-        }
-
-
-        .reviews-summary {
-            padding: 16px;
-            display: flex;
-            gap: 12px;
-            background: #fdfdfd;
-            border-bottom: 1px solid #eee;
-        }
-
-        .reviews-summary-left {
-            flex: 1;
-            text-align: center;
-        }
-
-        .reviews-summary-left .score {
-            font-size: 22px;
-            font-weight: bold;
-            color: #0044cc;
-        }
-
-        .stars {
-            color: #FFD700;
-            margin: 4px 0;
-        }
-
-
-        .reviews-summary-right {
-            flex: 2;
-            font-size: 14px;
-        }
-
-        .bar {
-            display: flex;
-            align-items: center;
-            margin: 2px 0;
-        }
-
-        .bar-line {
-            flex: 1;
-            height: 6px;
-            background: #eee;
-            border-radius: 4px;
-            margin: 0 6px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .bar-fill {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            background: #4B7BEC;
-        }
-
-
-        .review-item {
-            display: flex;
-            padding: 12px;
-            border-bottom: 1px solid #eee;
-            gap: 10px;
-        }
-
-        .review-item img {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .review-content {
-            flex: 1;
-            font-size: 14px;
-        }
-
-        .review-name {
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
-
-        .review-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 5px;
-            font-size: 14px;
-        }
-
-        .like-btn {
-            color: #1a73e8;
-            cursor: pointer;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .like-btn:hover {
-            color: #0b5ed7;
-        }
-
-        .review-date {
-            color: #666;
-            font-size: 13px;
-        }
-
-        .footer {
-            background: linear-gradient(135deg, rgba(173, 216, 230, 0.9) 0%, rgba(255, 182, 193, 0.9) 100%);
-            width: 100%;
-            text-align: center;
-            padding-top: 30px;
-        }
-
-        .footer img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        @media (min-width: 768px) {
-            .footer img {
-                max-width: none;
-                display: block;
-                margin: 0 auto;
-            }
-        }
-
-        .reviews-load-more {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .load-more-btn {
-            background: none;
-            border: none;
-            font-size: 16px;
-            font-weight: 500;
-            color: #1a73e8;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .load-more-btn:hover {
-            color: #0b5ed7;
-        }
-
-        .dots {
-            display: inline-flex;
-        }
-
-        .dots span {
-            animation: blink 1.2s infinite;
-            font-size: 18px;
-            line-height: 0;
-            margin-left: 2px;
-        }
-
-        .dots span:nth-child(1) {
-            animation-delay: 0s;
-        }
-
-        .dots span:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .dots span:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes blink {
-
-            0%,
-            80%,
-            100% {
-                opacity: 0;
-            }
-
-            40% {
-                opacity: 1;
-            }
-        }
-
 
         /* Box styles với animation nâng cao */
         .box {
@@ -1232,16 +118,19 @@
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.03);
             animation:
-                complexPulse 6s infinite ease-in-out,
+                /* complexPulse 6s infinite ease-in-out, */
                 borderRun 4s infinite linear,
-                shimmer 5s infinite linear,
-                float 7s infinite ease-in-out;
+                shimmer 5s infinite linear;
+                /* float 7s infinite ease-in-out; */
             box-shadow:
                 0 0 20px rgba(8, 97, 8, 0.3),
                 inset 0 0 30px rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .box1 {
@@ -1251,16 +140,19 @@
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.03);
             animation:
-                complexPulse 5s infinite ease-in-out,
+                /* complexPulse 5s infinite ease-in-out, */
                 borderRun 3s infinite linear,
-                shimmer 4s infinite linear,
-                float 6s infinite ease-in-out;
+                shimmer 4s infinite linear;
+                /* float 6s infinite ease-in-out; */
             box-shadow:
                 0 0 15px rgba(8, 97, 8, 0.3),
                 inset 0 0 20px rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .box2 {
@@ -1270,16 +162,19 @@
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.03);
             animation:
-                complexPulse 4s infinite ease-in-out,
+                /* complexPulse 4s infinite ease-in-out, */
                 borderRun 3.5s infinite linear,
-                shimmer 4.5s infinite linear,
-                float 5.5s infinite ease-in-out;
+                shimmer 4.5s infinite linear;
+                /* float 5.5s infinite ease-in-out; */
             box-shadow:
                 0 0 15px rgba(8, 97, 8, 0.3),
                 inset 0 0 20px rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         /* Hiệu ứng rung rinh và biến đổi */
@@ -1534,37 +429,6 @@
             animation-delay: 9.6s, 16s, 22.4s, 6.4s;
         }
 
-        /* Thêm các chấm chạy xung quanh viền */
-        .box::after,
-        .box1::after,
-        .box2::after {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border-radius: 12px;
-            background:
-                radial-gradient(circle at top left, #eafffb, transparent 85%),
-                radial-gradient(circle at top right, #cae8ff, transparent 85%),
-                radial-gradient(circle at bottom left, #d2fffe, transparent 85%),
-                radial-gradient(circle at bottom right, #dcd7ff, transparent 85%);
-            z-index: -1;
-            opacity: 0.7;
-            animation: rotate 10s linear infinite;
-        }
-
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
         /* Hiệu ứng khi hover */
         .box:hover,
         .box1:hover,
@@ -1574,643 +438,221 @@
             filter: brightness(1.5);
             transition: all 0.3s ease;
         }
-        @media (max-width: 768px) {
-            .box:nth-child(1) { top: 651px; left: 20px; }
-            .box1:nth-child(2) { top: 654px; left: 273px; }
-            .box2:nth-child(3) { top: 797px; left: 272px; }
-            
-            .box:nth-child(4) { top: 1051px; left: 20px; }
-            .box1:nth-child(5) { top: 1047px; left: 273px; }
-            .box2:nth-child(6) { top: 1203px; left: 272px; }
-            
-            .box:nth-child(7) { top: 1444px; left: 20px; }
-            .box1:nth-child(8) { top: 1442px; left: 273px; }
-            .box2:nth-child(9) { top: 1592px; left: 272px; }
-            
-            .box:nth-child(10) { top: 1844px; left: 20px; }
-            .box1:nth-child(11) { top: 1850px; left: 273px; }
-            .box2:nth-child(12) { top: 2000px; left: 272px; }
-            
-            .box:nth-child(13) { top: 2244px; left: 20px; }
-            .box1:nth-child(14) { top: 2233px; left: 273px; }
-            .box2:nth-child(15) { top: 2381px; left: 272px; }
-            
-            .box:nth-child(16) { top: 2634px; left: 20px; }
-            .box1:nth-child(17) { top: 2633px; left: 273px; }
-            .box2:nth-child(18) { top: 2786px; left: 272px; }
-            
-            .box:nth-child(19) { top: 3029px; left: 20px; }
-            .box1:nth-child(20) { top: 3050px; left: 273px; }
-            .box2:nth-child(21) { top: 3200px; left: 272px; }
-            
-            .box:nth-child(22) { top: 3430px; left: 20px; }
-            .box1:nth-child(23) { top: 3428px; left: 273px; }
-            .box2:nth-child(24) { top: 3575px; left: 272px; }
-            
-            .box:nth-child(25) { top: 3825px; left: 20px; }
-            .box1:nth-child(26) { top: 3827px; left: 273px; }
-            .box2:nth-child(27) { top: 3970px; left: 272px; }
-            
-            .box:nth-child(28) { top: 4285px; left: 20px; }
-            .box1:nth-child(29) { top: 4282px; left: 273px; }
-            .box2:nth-child(30) { top: 4432px; left: 272px; }
-            
-            .box:nth-child(31) { top: 4743px; left: 20px; }
-            .box1:nth-child(32) { top: 4744px; left: 273px; }
-            .box2:nth-child(33) { top: 4888px; left: 272px; }
-        }
-
-        /* Tablet positions */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .box, .box1, .box2 {
-                transform: scale(0.8);
+        
+        /* Responsive styles */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 430px;
             }
             
-            .box:nth-child(1) { top: 500px; left: 50px; }
-            .box1:nth-child(2) { top: 520px; left: 320px; }
-            .box2:nth-child(3) { top: 650px; left: 320px; }
-            
-            .box:nth-child(4) { top: 800px; left: 50px; }
-            .box1:nth-child(5) { top: 820px; left: 320px; }
-            .box2:nth-child(6) { top: 950px; left: 320px; }
-            
-            .box:nth-child(7) { top: 1100px; left: 50px; }
-            .box1:nth-child(8) { top: 1120px; left: 320px; }
-            .box2:nth-child(9) { top: 1250px; left: 320px; }
-            
-            .box:nth-child(10) { top: 1400px; left: 50px; }
-            .box1:nth-child(11) { top: 1420px; left: 320px; }
-            .box2:nth-child(12) { top: 1550px; left: 320px; }
-            
-            .box:nth-child(13) { top: 1700px; left: 50px; }
-            .box1:nth-child(14) { top: 1720px; left: 320px; }
-            .box2:nth-child(15) { top: 1850px; left: 320px; }
-            
-            .box:nth-child(16) { top: 2000px; left: 50px; }
-            .box1:nth-child(17) { top: 2020px; left: 320px; }
-            .box2:nth-child(18) { top: 2150px; left: 320px; }
-            
-            .box:nth-child(19) { top: 2300px; left: 50px; }
-            .box1:nth-child(20) { top: 2320px; left: 320px; }
-            .box2:nth-child(21) { top: 2450px; left: 320px; }
-            
-            .box:nth-child(22) { top: 2600px; left: 50px; }
-            .box1:nth-child(23) { top: 2620px; left: 320px; }
-            .box2:nth-child(24) { top: 2750px; left: 320px; }
-            
-            .box:nth-child(25) { top: 2900px; left: 50px; }
-            .box1:nth-child(26) { top: 2920px; left: 320px; }
-            .box2:nth-child(27) { top: 3050px; left: 320px; }
-            
-            .box:nth-child(28) { top: 3200px; left: 50px; }
-            .box1:nth-child(29) { top: 3220px; left: 320px; }
-            .box2:nth-child(30) { top: 3350px; left: 320px; }
-            
-            .box:nth-child(31) { top: 3500px; left: 50px; }
-            .box1:nth-child(32) { top: 3520px; left: 320px; }
-            .box2:nth-child(33) { top: 3650px; left: 320px; }
+            body {
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
         }
-
-        /* Desktop positions */
-        @media (min-width: 1025px) {
-            .box:nth-child(1) { top: 651px; left: 100px; }
-            .box1:nth-child(2) { top: 654px; left: 400px; }
-            .box2:nth-child(3) { top: 797px; left: 400px; }
-            
-            .box:nth-child(4) { top: 1051px; left: 100px; }
-            .box1:nth-child(5) { top: 1047px; left: 400px; }
-            .box2:nth-child(6) { top: 1203px; left: 400px; }
-            
-            .box:nth-child(7) { top: 1444px; left: 100px; }
-            .box1:nth-child(8) { top: 1442px; left: 400px; }
-            .box2:nth-child(9) { top: 1592px; left: 400px; }
-            
-            .box:nth-child(10) { top: 1844px; left: 100px; }
-            .box1:nth-child(11) { top: 1850px; left: 400px; }
-            .box2:nth-child(12) { top: 2000px; left: 400px; }
-            
-            .box:nth-child(13) { top: 2244px; left: 100px; }
-            .box1:nth-child(14) { top: 2233px; left: 400px; }
-            .box2:nth-child(15) { top: 2381px; left: 400px; }
-            
-            .box:nth-child(16) { top: 2634px; left: 100px; }
-            .box1:nth-child(17) { top: 2633px; left: 400px; }
-            .box2:nth-child(18) { top: 2786px; left: 400px; }
-            
-            .box:nth-child(19) { top: 3029px; left: 100px; }
-            .box1:nth-child(20) { top: 3050px; left: 400px; }
-            .box2:nth-child(21) { top: 3200px; left: 400px; }
-            
-            .box:nth-child(22) { top: 3430px; left: 100px; }
-            .box1:nth-child(23) { top: 3428px; left: 400px; }
-            .box2:nth-child(24) { top: 3575px; left: 400px; }
-            
-            .box:nth-child(25) { top: 3825px; left: 100px; }
-            .box1:nth-child(26) { top: 3827px; left: 400px; }
-            .box2:nth-child(27) { top: 3970px; left: 400px; }
-            
-            .box:nth-child(28) { top: 4285px; left: 100px; }
-            .box1:nth-child(29) { top: 4282px; left: 400px; }
-            .box2:nth-child(30) { top: 4432px; left: 400px; }
-            
-            .box:nth-child(31) { top: 4743px; left: 100px; }
-            .box1:nth-child(32) { top: 4744px; left: 400px; }
-            .box2:nth-child(33) { top: 4888px; left: 400px; }
-        }
-
         
+        @media (max-width: 430px) {
+            .container {
+                max-width: 100%;
+            }
+            
+            .box, .box1, .box2 {
+                width: calc(100% - 40px);
+                max-width: 242px;
+            }
+            
+            .box1, .box2 {
+                max-width: 140px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div class="stage">
-        <img src="/images/160925_Landing page_3471-vi_page-0001.jpg" alt="COMBO QUÀ TẶNG - Ưu đãi 50%">
+    <div class="container">
+        <div class="stage">
+            <img src="/images/160925_Landing page_3471-vi.png" alt="COMBO QUÀ TẶNG - Ưu đãi 50%">
+        </div>
+            
+        <!-- Các box với background image và AOS animation -->
+        <div class="box" 
+             style="top: 651px; left: 20px; background-image: url('/images/sp1/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12.jpg');"
+             data-aos="fade-right" data-aos-duration="100">
+        </div>
+        
+        <div class="box1" 
+             style="top:654px; left:273px; background-image: url('/images/sp1/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(1\).jpg');"
+             data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">
+        </div>
+        
+        <div class="box2" 
+             style="top:797px; left:272px; background-image: url('/images/sp1/_MG_0477.jpg');"
+             data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">
+        </div>
 
-        <!-- <div class="combo-overlay">
-            <div class="combo-title">
-                <div class="combo-text">COMBO QUÀ TẶNG</div>
-                <div class="discount-text">ƯU ĐÃI 50%</div>
-            </div>
+        <div class="box" 
+             style="top:1051px; left:20px; background-image: url('/images/sp2/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(2\).jpg');"
+             data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="200">
+        </div>
+        
+        <div class="box1" 
+             style="top:1047px; left:273px; background-image: url('/images/sp2/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(4\).jpg');"
+             data-aos="fade-up-left" data-aos-duration="1000" data-aos-delay="200">
+        </div>
+        
+        <div class="box2" 
+             style="top:1193px; left:272px; background-image: url('/images/sp2/_MG_0454.jpg');"
+             data-aos="fade-up-left" data-aos-duration="1000" data-aos-delay="200">
+        </div>
 
-            <div class="countdown">
-                <div class="countdown-item">
-                    <span class="countdown-value" id="hours">23</span>
-                    <span class="countdown-label">Giờ</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-value" id="minutes">59</span>
-                    <span class="countdown-label">Phút</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-value" id="seconds">59</span>
-                    <span class="countdown-label">Giây</span>
-                </div>
-            </div>
+        <div class="box" 
+             style="top:1444px; left:20px; background-image: url('/images/sp3/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(6\).jpg');"
+             data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="200">
+        </div>
+        
+        <div class="box1" 
+             style="top:1442px; left:273px; background-image: url('/images/sp3/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(5\).jpg');"
+             data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="200">
+        </div>
+        
+        <div class="box2" 
+             style="top:1592px; left:272px; background-image: url('/images/sp3/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(7\).jpg');"
+             data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="200">
+        </div>
 
-            <button class="order-btn" onclick="scrollToForm()">ĐẶT HÀNG NGAY</button>
-        </div> -->
+        <div class="box" 
+             style="top:1844px; left:20px; background-image: url('/images/sp4/ví.1.jpg');"
+             data-aos="flip-left" data-aos-duration="1000" data-aos-delay="300">
+        </div>
+        
+        <div class="box1" 
+             style="top:1850px; left:273px; background-image: url('/images/sp4/ví.5.jpg');"
+             data-aos="flip-right" data-aos-duration="1000" data-aos-delay="300">
+        </div>
+        
+        <div class="box2" 
+             style="top:1990px; left:272px; background-image: url('/images/sp4/ví.3.jpg');"
+             data-aos="flip-right" data-aos-duration="1000" data-aos-delay="300">
+        </div>
+
+        <!-- Các box bổ sung -->
+        <div class="box" 
+             style="top:2237px; left:20px; background-image: url('/images/sp5/hjbo;.jpg');"
+             data-aos="flip-down" data-aos-duration="1000" data-aos-delay="300">
+        </div>
+        
+        <div class="box1" 
+             style="top:2233px; left:273px; background-image: url('/images/sp5/87987.jpg'); "
+             data-aos="flip-up" data-aos-duration="1000" data-aos-delay="300">
+        </div>
+        
+        <div class="box2" 
+             style="top:2381px; left:272px; background-image: url('/images/sp5/y6h6yh.jpg');"
+             data-aos="flip-up" data-aos-duration="1000" data-aos-delay="300">
+        </div>
+
+        <div class="box" 
+             style="top:2634px; left:20px; background-image: url('/images/sp6/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(1\).jpg');"
+             data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
+        </div>
+        
+        <div class="box1" 
+             style="top:2633px; left:273px; background-image: url('/images/sp6/img_1700_36c7164cb0b84c36a137aafdb531d98b.jpg');"
+             data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="300">
+        </div>
+        
+        <div class="box2" 
+             style="top:2775px; left:272px; background-image: url('/images/sp6/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10.jpg');"
+             data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="300">
+        </div>
+
+        <div class="box" 
+             style="top:3029px; left:20px; background-image: url('/images/sp7/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(4\).jpg');"
+             data-aos="zoom-in-down" data-aos-duration="1000" data-aos-delay="300">
+        </div>
+        
+        <div class="box1" 
+             style="top:3037px; left:273px; background-image: url('/images/sp7/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(5\).jpg');"
+             data-aos="zoom-in-left" data-aos-duration="1000" data-aos-delay="300">
+        </div>
+        
+        <div class="box2" 
+             style="top:3176px; left:272px; background-image: url('/images/sp7/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(6\).jpg');"
+             data-aos="zoom-in-right" data-aos-duration="1000" data-aos-delay="300">
+        </div>
+
+        <div class="box" 
+             style="top:3430px; left:20px; background-image: url('/images/sp8/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(2\).jpg');"
+             data-aos="zoom-in-right" data-aos-duration="1000" data-aos-delay="400">
+        </div>
+        
+        <div class="box1" 
+             style="top:3428px; left:273px; background-image: url('/images/sp8/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(2\).jpg');"
+             data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="400">
+        </div>
+        
+        <div class="box2" 
+             style="top:3575px; left:272px; background-image: url('/images/sp8/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(3\).jpg');"
+             data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="400">
+        </div>
+
+        <div class="box" 
+             style="top:3825px; left:20px; background-image: url('/images/sp9/_mg_0396_a8e67b89023a4e6c97889296a35b1817.jpg');"
+             data-aos="zoom-out-up" data-aos-duration="1000" data-aos-delay="400">
+        </div>
+        
+        <div class="box1" 
+             style="top:3827px; left:273px; background-image: url('/images/sp9/_mg_0393_169c83add60147faaa972f8918ad1adb.jpg');"
+             data-aos="zoom-out-down" data-aos-duration="1000" data-aos-delay="400">
+        </div>
+        
+        <div class="box2" 
+             style="top:3970px; left:272px; background-image: url('/images/sp9/_mg_0389_436c216721144d35a468908fa97e354f.jpg');"
+             data-aos="zoom-out-down" data-aos-duration="1000" data-aos-delay="400">
+        </div>
+
+        <div class="box" 
+             style="top:4285px; left:20px; background-image: url('/images/sp10/_mg_0380_4edb75ee11d74451a863838f65bea5b9.jpg');"
+             data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
+        </div>
+        
+        <div class="box1" 
+             style="top:4282px; left:273px; background-image: url('/images/sp10/_mg_0372_2342c8226bea4569b96ab4b715a13594.jpg');"
+             data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+        </div>
+        
+        <div class="box2" 
+             style="top:4432px; left:272px; background-image: url('/images/sp10/_mg_0376_c09e8d4e483846b5818ca7f145a80ad1.jpg');"
+             data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+        </div>
+
+        <div class="box" 
+             style="top:4743px; left:20px; background-image: url('/images/sp11/hapas_6-4-7446_39b5f76ee5f64efe8a3bd94b2370f913.jpg');"
+             data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        </div>
+        
+        <div class="box1" 
+             style="top:4744px; left:273px; background-image: url('images/sp11/hapas_6-4-7454_fce03e9bf0f041bf9bf0fa015fe9e68d.jpg');"
+             data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        </div>
+        
+        <div class="box2" 
+             style="top:4888px; left:272px; background-image: url('/images/sp11/hapas_6-4-7459_dd86aa3a270c44c4a06f7bc6ebb868b8.jpg');"
+             data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        </div>
     </div>
 
-    <!-- <div class="fixed-combo" id="fixedCombo">
-        <div class="fixed-combo-left">
-            <div class="fixed-combo-text">COMBO QUÀ TẶNG</div>
-            <div class="fixed-divider"></div>
-            <div class="fixed-discount">ƯU ĐÃI 50%</div>
-            <div class="fixed-countdown">
-                <div class="fixed-countdown-item">
-                    <span class="fixed-countdown-value" id="fixed-hours">23</span>
-                    <span class="fixed-countdown-label">Giờ</span>
-                </div>
-                <div class="fixed-countdown-item">
-                    <span class="fixed-countdown-value" id="fixed-minutes">59</span>
-                    <span class="fixed-countdown-label">Phút</span>
-                </div>
-                <div class="fixed-countdown-item">
-                    <span class="fixed-countdown-value" id="fixed-seconds">59</span>
-                    <span class="fixed-countdown-label">Giây</span>
-                </div>
-            </div>
-        </div>
-        <button class="fixed-order-btn" onclick="scrollToForm()">ĐẶT HÀNG NGAY</button>
-    </div> -->
-
-    <!-- <div class="form-register" id="orderForm">
-        <div class="form-container">
-            <h2 class="form-title">ĐĂNG KÝ NHẬN ƯU ĐÃI 50%</h2>
-
-            <div class="urgency-banner">
-                <div class="urgency-text">ƯU ĐÃI CHỈ CÒN</div>
-            </div>
-            <div class="form-countdown">
-                <div class="form-countdown-item">
-                    <span class="form-countdown-value" id="form-hours">23</span>
-                    <span class="form-countdown-label">Giờ</span>
-                </div>
-                <div class="form-countdown-item">
-                    <span class="form-countdown-value" id="form-minutes">59</span>
-                    <span class="form-countdown-label">Phút</span>
-                </div>
-                <div class="form-countdown-item">
-                    <span class="form-countdown-value" id="form-seconds">59</span>
-                    <span class="form-countdown-label">Giây</span>
-                </div>
-            </div>
-
-
-
-            <form id="order-form">
-                <div class="form-group">
-                    <label class="form-label" for="name">Họ và tên *</label>
-                    <input type="text" id="name" class="form-input" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="phone">Số điện thoại *</label>
-                    <input type="tel" id="phone" class="form-input" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="address">Địa chỉ nhận hàng *</label>
-                    <input type="text" id="address" class="form-input" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Chọn sản phẩm *</label>
-                    <div class="products-grid">
-                        <input type="checkbox" id="product1" name="products" value="TKM - Đ" class="product-checkbox">
-                        <label for="product1" class="product-label">
-                            <div class="product-name">TKM-Đ(Màu Da)</div>
-                            <div class="product-price">
-                                <del>1.200.000đ</del> 600.000đ
-                            </div>
-                        </label>
-
-                        <input type="checkbox" id="product2" name="products" value="TKM - Đ" class="product-checkbox">
-                        <label for="product2" class="product-label">
-                            <div class="product-name">TKM-Đ(Màu Be) </div>
-                            <div class="product-price">
-                                <del>1.500.000đ</del> 750.000đ
-                            </div>
-                        </label>
-
-                        <input type="checkbox" id="product3" name="products" value="TKM - Đ" class="product-checkbox">
-                        <label for="product3" class="product-label">
-                            <div class="product-name">TKM-Đ(Màu Xanh Dương)</div>
-                            <div class="product-price">
-                                <del>2.000.000đ</del> 1.000.000đ
-                            </div>
-                        </label>
-
-                        <input type="checkbox" id="product4" name="products" value="TKM - Đ" class="product-checkbox">
-                        <label for="product4" class="product-label">
-                            <div class="product-name">TKM-Đ(Màu Bạc)</div>
-                            <div class="product-price">
-                                <del>2.500.000đ</del> 1.250.000đ
-                            </div>
-                        </label>
-
-                        <input type="checkbox" id="product5" name="products" value="TKM - Đ" class="product-checkbox">
-                        <label for="product5" class="product-label">
-                            <div class="product-name">TKM-Đ(Màu Đen)</div>
-                            <div class="product-price">
-                                <del>2.500.000đ</del> 1.250.000đ
-                            </div>
-                        </label>
-
-                        <input type="checkbox" id="product6" name="products" value="TKM - Đ" class="product-checkbox">
-                        <label for="product6" class="product-label">
-                            <div class="product-name">TKM-Đ(Màu Hồng Da PU)</div>
-                            <div class="product-price">
-                                <del>2.500.000đ</del> 1.250.000đ
-                            </div>
-                        </label>
-
-                        <input type="checkbox" id="product7" name="products" value="TKM - Đ" class="product-checkbox">
-                        <label for="product7" class="product-label">
-                            <div class="product-name">TKM-Đ(Màu Trắng Da PU)</div>
-                            <div class="product-price">
-                                <del>2.500.000đ</del> 1.250.000đ
-                            </div>
-                        </label>
-
-                        <input type="checkbox" id="product8" name="products" value="TKM - Đ" class="product-checkbox">
-                        <label for="product8" class="product-label">
-                            <div class="product-name">TKM-Đ(Màu Trắng Da PU + denim)</div>
-                            <div class="product-price">
-                                <del>2.500.000đ</del> 1.250.000đ
-                            </div>
-                        </label>
-
-                        <input type="checkbox" id="product9" name="products" value="TKM - Đ" class="product-checkbox">
-                        <label for="product9" class="product-label">
-                            <div class="product-name">TKM-Đ(Màu Hồng Da PU + denim)</div>
-                            <div class="product-price">
-                                <del>2.500.000đ</del> 1.250.000đ
-                            </div>
-                        </label>
-
-                        <input type="checkbox" id="product10" name="products" value="TKM - Đ" class="product-checkbox">
-                        <label for="product10" class="product-label">
-                            <div class="product-name">TKM-Đ( Màu Xanh Dương chấm Bi )</div>
-                            <div class="product-price">
-                                <del>2.500.000đ</del> 1.250.000đ
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="note">Ghi chú đơn hàng</label>
-                    <textarea id="note" class="form-input" rows="4"
-                        placeholder="Ghi chú thêm về đơn hàng..."></textarea>
-                </div>
-
-                <button type="submit" class="btn-submit">ĐẶT HÀNG NGAY - TIẾT KIỆM 50%</button>
-            </form>
-        </div>
-    </div> -->
-
-    <!-- <div class="reviews-section">
-        <div class="reviews-header">KHÁCH HÀNG NHẬN XÉT</div>
-
-
-        <div class="reviews-summary">
-            <div class="reviews-summary-left">
-                <div class="score">4.9/5</div>
-                <div class="stars">★★★★★</div>
-                <div>2.545 nhận xét</div>
-            </div>
-            <div class="reviews-summary-right">
-                <div class="bar"><span>5</span>
-                    <div class="bar-line">
-                        <div class="bar-fill" style="width:95%"></div>
-                    </div><span>95%</span>
-                </div>
-                <div class="bar"><span>4</span>
-                    <div class="bar-line">
-                        <div class="bar-fill" style="width:3%"></div>
-                    </div><span>3%</span>
-                </div>
-                <div class="bar"><span>3</span>
-                    <div class="bar-line">
-                        <div class="bar-fill" style="width:2%"></div>
-                    </div><span>2%</span>
-                </div>
-                <div class="bar"><span>2</span>
-                    <div class="bar-line">
-                        <div class="bar-fill" style="width:0%"></div>
-                    </div><span>0%</span>
-                </div>
-                <div class="bar"><span>1</span>
-                    <div class="bar-line">
-                        <div class="bar-fill" style="width:0%"></div>
-                    </div><span>0%</span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="review-item">
-            <img src="https://i.pravatar.cc/48?img=1" alt="avatar">
-            <div class="review-content">
-                <div class="review-name">Minh Minh</div>
-                <div>Ví rất đẹp, da mềm mịn, đường may chắc chắn.</div>
-                <div class="review-stars stars">★★★★★</div>
-                <div class="review-actions">
-                    <span class="like-btn">Thích · 👍 <span class="like-count">7</span></span>
-                    <span class="review-date">1 tiếng trước</span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="review-item">
-            <img src="https://i.pravatar.cc/48?img=2" alt="avatar">
-            <div class="review-content">
-                <div class="review-name">Lan Anh</div>
-                <div>Màu sắc đúng như mô tả, giao hàng nhanh.</div>
-                <div class="review-stars stars">★★★★★</div>
-                <div class="review-actions">
-                    <span class="like-btn">Thích · 👍 <span class="like-count">7</span></span>
-                    <span class="review-date">48 phút trước</span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="review-item">
-            <img src="https://i.pravatar.cc/48?img=3" alt="avatar">
-            <div class="review-content">
-                <div class="review-name">Hoàng Nam</div>
-                <div>Dùng được hơn tháng rồi vẫn bền đẹp.</div>
-                <div class="review-stars stars">★★★★★</div>
-                <div class="review-actions">
-                    <span class="like-btn">Thích · 👍 <span class="like-count">7</span></span>
-                    <span class="review-date">37 phút trước</span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="review-item">
-            <img src="https://i.pravatar.cc/48?img=4" alt="avatar">
-            <div class="review-content">
-                <div class="review-name">Ngọc Hà</div>
-                <div>Rất hài lòng, sẽ ủng hộ thêm sản phẩm khác.</div>
-                <div class="review-stars stars">★★★★★</div>
-                <div class="review-actions">
-                    <span class="like-btn">Thích · 👍 <span class="like-count">7</span></span>
-                    <span class="review-date">18 phút trước</span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="review-item">
-            <img src="https://i.pravatar.cc/48?img=5" alt="avatar">
-            <div class="review-content">
-                <div class="review-name">Thanh Tùng</div>
-                <div>Giá cả hợp lý, ví đẹp đúng mong đợi.</div>
-                <div class="review-stars stars">★★★★★</div>
-                <div class="review-actions">
-                    <span class="like-btn">Thích · 👍 <span class="like-count">7</span></span>
-                    <span class="review-date">15 phút trước</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="reviews-load-more">
-            <button class="load-more-btn">
-                Xem thêm <span class="dots"><span>.</span><span>.</span><span>.</span></span>
-            </button>
-        </div>
-    </div> -->
-
-    <div class="box" style="top: 651px;
-    left: 20px;"></div>
-    <div class="box1" style="top:654px; left:273px;"></div>
-    <div class="box2" style="top:797px; left:272px;"></div>
-
-    <div class="box" style="top:1051px; left:20px;"></div>
-    <div class="box1" style="top:1047px; left:273px;"></div>
-    <div class="box2" style="top:1203px; left:272px;"></div>
-
-    <div class="box" style="top:1444px; left:20px;"></div>
-    <div class="box1" style="top:1442px; left:273px;"></div>
-    <div class="box2" style="top:1592px; left:272px;"></div>
-
-    <div class="box" style="top:1844px; left:20px;"></div>
-    <div class="box1" style="top:1850px; left:273px;"></div>
-    <div class="box2" style="top:2000px; left:272px;"></div>
-
-
-    <div class="box" style="top:2244px; left:20px;"></div>
-    <div class="box1" style="top:2233px; left:273px;"></div>
-    <div class="box2" style="top:2381px; left:272px;"></div>
-
-
-    <div class="box" style="top:2634px; left:20px;"></div>
-    <div class="box1" style="top:2633px; left:273px;"></div>
-    <div class="box2" style="top:2786px; left:272px;"></div>
-
-
-    <div class="box" style="top:3029px; left:20px;"></div>
-    <div class="box1" style="top:3037px; left:273px;"></div>
-    <div class="box2" style="top:3176px; left:272px;"></div>
-
-
-    <div class="box" style="top:3430px; left:20px;"></div>
-    <div class="box1" style="top:3428px; left:273px;"></div>
-    <div class="box2" style="top:3575px; left:272px;"></div>
-
-
-    <div class="box" style="top:3825px; left:20px;"></div>
-    <div class="box1" style="top:3827px; left:273px;"></div>
-    <div class="box2" style="top:3970px; left:272px;"></div>
-
-
-    <div class="box" style="top:4285px; left:20px;"></div>
-    <div class="box1" style="top:4282px; left:273px;"></div>
-    <div class="box2" style="top:4432px; left:272px;"></div>
-
-
-    <div class="box" style="top:4743px; left:20px;"></div>
-    <div class="box1" style="top:4744px; left:273px;"></div>
-    <div class="box2" style="top:4888px; left:272px;"></div>
-
-    <!-- <div class="footer">
-        <img src="/images/footer2.png" alt="Footer">
-    </div> -->
-
-    <!-- <script>
-        window.addEventListener('scroll', function () {
-            const comboOverlay = document.querySelector('.combo-overlay');
-            const fixedCombo = document.getElementById('fixedCombo');
-            const comboRect = comboOverlay.getBoundingClientRect();
-
-            if (comboRect.bottom < 0) {
-                fixedCombo.style.display = 'flex';
-            } else {
-                fixedCombo.style.display = 'none';
-            }
+    <!-- AOS Library Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false,
+            mirror: true
         });
-        let prevHours = 23;
-        let prevMinutes = 59;
-        let prevSeconds = 59;
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const endTime = now + (24 * 60 * 60 * 1000);
-
-            const countdownFunction = setInterval(function () {
-                const now = new Date().getTime();
-                const distance = endTime - now;
-
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                updateCountdownValue('hours', hours, prevHours);
-                updateCountdownValue('minutes', minutes, prevMinutes);
-                updateCountdownValue('seconds', seconds, prevSeconds);
-
-                updateCountdownValue('form-hours', hours, prevHours);
-                updateCountdownValue('form-minutes', minutes, prevMinutes);
-                updateCountdownValue('form-seconds', seconds, prevSeconds);
-
-
-                document.getElementById("fixed-hours").innerHTML = hours.toString().padStart(2, '0');
-                document.getElementById("fixed-minutes").innerHTML = minutes.toString().padStart(2, '0');
-                document.getElementById("fixed-seconds").innerHTML = seconds.toString().padStart(2, '0');
-
-                prevHours = hours;
-                prevMinutes = minutes;
-                prevSeconds = seconds;
-
-                if (distance < 0) {
-                    clearInterval(countdownFunction);
-                    document.getElementById("hours").innerHTML = "00";
-                    document.getElementById("minutes").innerHTML = "00";
-                    document.getElementById("seconds").innerHTML = "00";
-                    document.getElementById("form-hours").innerHTML = "00";
-                    document.getElementById("form-minutes").innerHTML = "00";
-                    document.getElementById("form-seconds").innerHTML = "00";
-                    document.getElementById("urgency-time").innerHTML = "00:00:00";
-                    document.querySelector(".urgency-banner").innerHTML = "<div class='urgency-text'>ƯU ĐÃI ĐÃ KẾT THÚC!</div>";
-
-                    document.getElementById("fixed-hours").innerHTML = "00";
-                    document.getElementById("fixed-minutes").innerHTML = "00";
-                    document.getElementById("fixed-seconds").innerHTML = "00";
-                }
-            }, 1000);
-        }
-
-        function updateCountdownValue(elementId, newValue, prevValue) {
-            const element = document.getElementById(elementId);
-            const formElement = document.getElementById('form-' + elementId);
-            const fixedElement = document.getElementById('fixed-' + elementId);
-
-            if (newValue !== prevValue) {
-                if (element) {
-                    element.classList.add('flip');
-                    setTimeout(() => {
-                        element.innerHTML = newValue.toString().padStart(2, '0');
-                        setTimeout(() => {
-                            element.classList.remove('flip');
-                        }, 250);
-                    }, 250);
-                }
-
-                if (formElement) {
-                    formElement.classList.add('flip');
-                    setTimeout(() => {
-                        formElement.innerHTML = newValue.toString().padStart(2, '0');
-                        setTimeout(() => {
-                            formElement.classList.remove('flip');
-                        }, 250);
-                    }, 250);
-                }
-            } else {
-                if (element) element.innerHTML = newValue.toString().padStart(2, '0');
-                if (formElement) formElement.innerHTML = newValue.toString().padStart(2, '0');
-            }
-
-            if (fixedElement) {
-                fixedElement.innerHTML = newValue.toString().padStart(2, '0');
-            }
-        }
-
-        document.getElementById('order-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const address = document.getElementById('address').value;
-            const note = document.getElementById('note').value;
-
-            const selectedProducts = [];
-            document.querySelectorAll('input[name="products"]:checked').forEach(function (checkbox) {
-                selectedProducts.push(checkbox.value);
-            });
-
-            if (selectedProducts.length === 0) {
-                alert('Vui lòng chọn ít nhất một sản phẩm!');
-                return;
-            }
-
-            alert(`Cảm ơn ${name} đã đặt hàng! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.`);
-
-
-            document.getElementById('order-form').reset();
-        });
-
-        function scrollToForm() {
-            document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth' });
-        }
-
-
-        window.onload = updateCountdown;
-    </script> -->
+    </script>
 </body>
 
 </html>
