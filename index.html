@@ -118,10 +118,8 @@
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.03);
             animation:
-                /* complexPulse 6s infinite ease-in-out, */
-                borderRun 4s infinite linear,
-                shimmer 5s infinite linear;
-                /* float 7s infinite ease-in-out; */
+                borderRun 4s infinite linear;
+                /* shimmer 5s infinite linear; */
             box-shadow:
                 0 0 20px rgba(8, 97, 8, 0.3),
                 inset 0 0 30px rgba(255, 255, 255, 0.05);
@@ -140,10 +138,8 @@
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.03);
             animation:
-                /* complexPulse 5s infinite ease-in-out, */
-                borderRun 3s infinite linear,
-                shimmer 4s infinite linear;
-                /* float 6s infinite ease-in-out; */
+                borderRun 3s infinite linear;
+                /* shimmer 4s infinite linear; */
             box-shadow:
                 0 0 15px rgba(8, 97, 8, 0.3),
                 inset 0 0 20px rgba(255, 255, 255, 0.05);
@@ -162,10 +158,8 @@
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.03);
             animation:
-                /* complexPulse 4s infinite ease-in-out, */
-                borderRun 3.5s infinite linear,
-                shimmer 4.5s infinite linear;
-                /* float 5.5s infinite ease-in-out; */
+                borderRun 3.5s infinite linear;
+                /* shimmer 4.5s infinite linear; */
             box-shadow:
                 0 0 15px rgba(8, 97, 8, 0.3),
                 inset 0 0 20px rgba(255, 255, 255, 0.05);
@@ -175,35 +169,6 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-        }
-
-        /* Hiệu ứng rung rinh và biến đổi */
-        @keyframes complexPulse {
-
-            0%,
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 0.3;
-                filter: hue-rotate(0deg) contrast(100%);
-            }
-
-            25% {
-                transform: scale(1.02) rotate(0.3deg);
-                opacity: 0.5;
-                filter: hue-rotate(45deg) contrast(110%);
-            }
-
-            50% {
-                transform: scale(1.05) rotate(0deg);
-                opacity: 0.7;
-                filter: hue-rotate(90deg) contrast(120%);
-            }
-
-            75% {
-                transform: scale(1.02) rotate(-0.3deg);
-                opacity: 0.5;
-                filter: hue-rotate(45deg) contrast(110%);
-            }
         }
 
         /* Hiệu ứng viền chấm chạy */
@@ -252,19 +217,6 @@
 
             100% {
                 background-position: 200% center;
-            }
-        }
-
-        /* Hiệu ứng nổi lên chìm xuống */
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
             }
         }
 
@@ -435,12 +387,46 @@
         .box2:hover {
             animation-play-state: paused;
             transform: scale(1.1);
-            /* filter: brightness(1.5); */
             transition: all 0.3s ease;
         }
         
+        /* Position classes for boxes */
+        .pos-1 { top: 651px; left: 20px; }
+        .pos-2 { top: 654px; left: 273px; }
+        .pos-3 { top: 797px; left: 272px; }
+        .pos-4 { top: 1051px; left: 20px; }
+        .pos-5 { top: 1047px; left: 273px; }
+        .pos-6 { top: 1193px; left: 272px; }
+        .pos-7 { top: 1444px; left: 20px; }
+        .pos-8 { top: 1442px; left: 273px; }
+        .pos-9 { top: 1592px; left: 272px; }
+        .pos-10 { top: 1844px; left: 20px; }
+        .pos-11 { top: 1850px; left: 273px; }
+        .pos-12 { top: 1990px; left: 272px; }
+        .pos-13 { top: 2237px; left: 20px; }
+        .pos-14 { top: 2233px; left: 273px; }
+        .pos-15 { top: 2381px; left: 272px; }
+        .pos-16 { top: 2634px; left: 20px; }
+        .pos-17 { top: 2633px; left: 273px; }
+        .pos-18 { top: 2775px; left: 272px; }
+        .pos-19 { top: 3029px; left: 20px; }
+        .pos-20 { top: 3037px; left: 273px; }
+        .pos-21 { top: 3176px; left: 272px; }
+        .pos-22 { top: 3430px; left: 20px; }
+        .pos-23 { top: 3428px; left: 273px; }
+        .pos-24 { top: 3575px; left: 272px; }
+        .pos-25 { top: 3825px; left: 20px; }
+        .pos-26 { top: 3827px; left: 273px; }
+        .pos-27 { top: 3970px; left: 272px; }
+        .pos-28 { top: 4285px; left: 20px; }
+        .pos-29 { top: 4282px; left: 273px; }
+        .pos-30 { top: 4432px; left: 272px; }
+        .pos-31 { top: 4743px; left: 20px; }
+        .pos-32 { top: 4744px; left: 273px; }
+        .pos-33 { top: 4888px; left: 272px; }
+        
         /* Responsive styles */
-        @media (min-width: 768px) {
+        @media (min-width: 430px) {
             .container {
                 max-width: 430px;
             }
@@ -452,19 +438,54 @@
             }
         }
         
-        @media (max-width: 430px) {
+        @media (max-width: 429px) {
             .container {
                 max-width: 100%;
             }
             
             .box, .box1, .box2 {
-                width: calc(100% - 40px);
-                max-width: 242px;
+                width: calc(100% - 212px);
+                /* max-width: 242px; */
             }
             
             .box1, .box2 {
                 max-width: 140px;
             }
+            
+            /* Adjust positions for smaller screens */
+            .pos-1 { top: 540px; left: 30px; }
+            .pos-2 { top: 540px; left: 223px; }
+            .pos-3 { top: 690px; left: 222px; }
+            .pos-4 { top: 910px; left: 30px; }
+            .pos-5 { top: 910px; left: 223px; }
+            .pos-6 { top: 1060px; left: 222px; }
+            .pos-7 { top: 1280px; left: 30px; }
+            .pos-8 { top: 1280px; left: 223px; }
+            .pos-9 { top: 1420px; left: 222px; }
+            .pos-10 { top: 1640px; left: 30px; }
+            .pos-11 { top: 1640px; left: 223px; }
+            .pos-12 { top: 1780px; left: 222px; }
+            .pos-13 { top: 2000px; left: 30px; }
+            .pos-14 { top: 2000px; left: 223px; }
+            .pos-15 { top: 2150px; left: 222px; }
+            .pos-16 { top: 2360px; left: 30px; }
+            .pos-17 { top: 2360px; left: 223px; }
+            .pos-18 { top: 2510px; left: 222px; }
+            .pos-19 { top: 2720px; left: 30px; }
+            .pos-20 { top: 2720px; left: 223px; }
+            .pos-21 { top: 2870px; left: 222px; }
+            .pos-22 { top: 3080px; left: 30px; }
+            .pos-23 { top: 3080px; left: 223px; }
+            .pos-24 { top: 3225px; left: 222px; }
+            .pos-25 { top: 3450px; left: 30px; }
+            .pos-26 { top: 3450px; left: 223px; }
+            .pos-27 { top: 3590px; left: 222px; }
+            .pos-28 { top: 3850px; left: 30px; }
+            .pos-29 { top: 3850px; left: 223px; }
+            .pos-30 { top: 3990px; left: 222px; }
+            .pos-31 { top: 4270px; left: 30px; }
+            .pos-32 { top: 4270px; left: 223px; }
+            .pos-33 { top: 4410px; left: 222px; }
         }
     </style>
 </head>
@@ -476,169 +497,169 @@
         </div>
             
         <!-- Các box với background image và AOS animation -->
-        <div class="box" 
-             style="top: 651px; left: 20px; background-image: url('/images/sp1/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12.jpg');"
+        <div class="box pos-1" 
+             style="background-image: url('/images/sp1/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12.jpg');"
              data-aos="fade-right" data-aos-duration="100">
         </div>
         
-        <div class="box1" 
-             style="top:654px; left:273px; background-image: url('/images/sp1/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(1\).jpg');"
+        <div class="box1 pos-2" 
+             style="background-image: url('/images/sp1/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(1\).jpg');"
              data-aos="fade-left" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box2" 
-             style="top:797px; left:272px; background-image: url('/images/sp1/_MG_0477.jpg');"
+        <div class="box2 pos-3" 
+             style="background-image: url('/images/sp1/_MG_0477.jpg');"
              data-aos="fade-left" data-aos-duration="400" data-aos-delay="50">
         </div>
 
-        <div class="box" 
-             style="top:1051px; left:20px; background-image: url('/images/sp2/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(2\).jpg');"
+        <div class="box pos-4" 
+             style="background-image: url('/images/sp2/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(2\).jpg');"
              data-aos="fade-up-right" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box1" 
-             style="top:1047px; left:273px; background-image: url('/images/sp2/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(4\).jpg');"
+        <div class="box1 pos-5" 
+             style="background-image: url('/images/sp2/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(4\).jpg');"
              data-aos="fade-up-left" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box2" 
-             style="top:1193px; left:272px; background-image: url('/images/sp2/_MG_0454.jpg');"
+        <div class="box2 pos-6" 
+             style="background-image: url('/images/sp2/_MG_0454.jpg');"
              data-aos="fade-up-left" data-aos-duration="400" data-aos-delay="50">
         </div>
 
-        <div class="box" 
-             style="top:1444px; left:20px; background-image: url('/images/sp3/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(6\).jpg');"
+        <div class="box pos-7" 
+             style="background-image: url('/images/sp3/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(6\).jpg');"
              data-aos="fade-down-right" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box1" 
-             style="top:1442px; left:273px; background-image: url('/images/sp3/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(5\).jpg');"
+        <div class="box1 pos-8" 
+             style="background-image: url('/images/sp3/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(5\).jpg');"
              data-aos="fade-down-left" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box2" 
-             style="top:1592px; left:272px; background-image: url('/images/sp3/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(7\).jpg');"
+        <div class="box2 pos-9" 
+             style="background-image: url('/images/sp3/Ví\ Vuông\ Khóa\ Bạc\ Sz\ 12\ \(7\).jpg');"
              data-aos="fade-down-left" data-aos-duration="400" data-aos-delay="50">
         </div>
 
-        <div class="box" 
-             style="top:1844px; left:20px; background-image: url('/images/sp4/ví.1.jpg');"
+        <div class="box pos-10" 
+             style="background-image: url('/images/sp4/ví.1.jpg');"
              data-aos="flip-left" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box1" 
-             style="top:1850px; left:273px; background-image: url('/images/sp4/ví.5.jpg');"
+        <div class="box1 pos-11" 
+             style="background-image: url('/images/sp4/ví.5.jpg');"
              data-aos="flip-right" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box2" 
-             style="top:1990px; left:272px; background-image: url('/images/sp4/ví.3.jpg');"
+        <div class="box2 pos-12" 
+             style="background-image: url('/images/sp4/ví.3.jpg');"
              data-aos="flip-right" data-aos-duration="400" data-aos-delay="50">
         </div>
 
         <!-- Các box bổ sung -->
-        <div class="box" 
-             style="top:2237px; left:20px; background-image: url('/images/sp5/hjbo;.jpg');"
+        <div class="box pos-13" 
+             style="background-image: url('/images/sp5/hjbo;.jpg');"
              data-aos="flip-down" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box1" 
-             style="top:2233px; left:273px; background-image: url('/images/sp5/87987.jpg'); "
+        <div class="box1 pos-14" 
+             style="background-image: url('/images/sp5/87987.jpg'); "
              data-aos="flip-up" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box2" 
-             style="top:2381px; left:272px; background-image: url('/images/sp5/y6h6yh.jpg');"
+        <div class="box2 pos-15" 
+             style="background-image: url('/images/sp5/y6h6yh.jpg');"
              data-aos="flip-up" data-aos-duration="400" data-aos-delay="50">
         </div>
 
-        <div class="box" 
-             style="top:2634px; left:20px; background-image: url('/images/sp6/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(1\).jpg');"
+        <div class="box pos-16" 
+             style="background-image: url('/images/sp6/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(1\).jpg');"
              data-aos="zoom-in" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box1" 
-             style="top:2633px; left:273px; background-image: url('/images/sp6/img_1700_36c7164cb0b84c36a137aafdb531d98b.jpg');"
+        <div class="box1 pos-17" 
+             style="background-image: url('/images/sp6/img_1700_36c7164cb0b84c36a137aafdb531d98b.jpg');"
              data-aos="zoom-in-up" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box2" 
-             style="top:2775px; left:272px; background-image: url('/images/sp6/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10.jpg');"
+        <div class="box2 pos-18" 
+             style="background-image: url('/images/sp6/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10.jpg');"
              data-aos="zoom-in-up" data-aos-duration="400" data-aos-delay="50">
         </div>
 
-        <div class="box" 
-             style="top:3029px; left:20px; background-image: url('/images/sp7/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(4\).jpg');"
+        <div class="box pos-19" 
+             style="background-image: url('/images/sp7/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(4\).jpg');"
              data-aos="zoom-in-down" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box1" 
-             style="top:3037px; left:273px; background-image: url('/images/sp7/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(5\).jpg');"
+        <div class="box1 pos-20" 
+             style="background-image: url('/images/sp7/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(5\).jpg');"
              data-aos="zoom-in-left" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box2" 
-             style="top:3176px; left:272px; background-image: url('/images/sp7/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(6\).jpg');"
+        <div class="box2 pos-21" 
+             style="background-image: url('/images/sp7/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(6\).jpg');"
              data-aos="zoom-in-right" data-aos-duration="400" data-aos-delay="50">
         </div>
 
-        <div class="box" 
-             style="top:3430px; left:20px; background-image: url('/images/sp8/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(2\).jpg');"
+        <div class="box pos-22" 
+             style="background-image: url('/images/sp8/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(2\).jpg');"
              data-aos="zoom-in-right" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box1" 
-             style="top:3428px; left:273px; background-image: url('/images/sp8/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(2\).jpg');"
+        <div class="box1 pos-23" 
+             style="background-image: url('/images/sp8/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(2\).jpg');"
              data-aos="zoom-out" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box2" 
-             style="top:3575px; left:272px; background-image: url('/images/sp8/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(3\).jpg');"
+        <div class="box2 pos-24" 
+             style="background-image: url('/images/sp8/Ví\ Card\ Nắp\ Gập\ Silver\ Chain\ Sz\ 10\ \(3\).jpg');"
              data-aos="zoom-out" data-aos-duration="400" data-aos-delay="50">
         </div>
 
-        <div class="box" 
-             style="top:3825px; left:20px; background-image: url('/images/sp9/_mg_0396_a8e67b89023a4e6c97889296a35b1817.jpg');"
+        <div class="box pos-25" 
+             style="background-image: url('/images/sp9/_mg_0396_a8e67b89023a4e6c97889296a35b1817.jpg');"
              data-aos="zoom-out-up" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box1" 
-             style="top:3827px; left:273px; background-image: url('/images/sp9/_mg_0393_169c83add60147faaa972f8918ad1adb.jpg');"
+        <div class="box1 pos-26" 
+             style="background-image: url('/images/sp9/_mg_0393_169c83add60147faaa972f8918ad1adb.jpg');"
              data-aos="zoom-out-down" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box2" 
-             style="top:3970px; left:272px; background-image: url('/images/sp9/_mg_0389_436c216721144d35a468908fa97e354f.jpg');"
+        <div class="box2 pos-27" 
+             style="background-image: url('/images/sp9/_mg_0389_436c216721144d35a468908fa97e354f.jpg');"
              data-aos="zoom-out-down" data-aos-duration="400" data-aos-delay="50">
         </div>
 
-        <div class="box" 
-             style="top:4285px; left:20px; background-image: url('/images/sp10/_mg_0380_4edb75ee11d74451a863838f65bea5b9.jpg');"
+        <div class="box pos-28" 
+             style="background-image: url('/images/sp10/_mg_0380_4edb75ee11d74451a863838f65bea5b9.jpg');"
              data-aos="fade-right" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box1" 
-             style="top:4282px; left:273px; background-image: url('/images/sp10/_mg_0372_2342c8226bea4569b96ab4b715a13594.jpg');"
+        <div class="box1 pos-29" 
+             style="background-image: url('/images/sp10/_mg_0372_2342c8226bea4569b96ab4b715a13594.jpg');"
              data-aos="fade-left" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box2" 
-             style="top:4432px; left:272px; background-image: url('/images/sp10/_mg_0376_c09e8d4e483846b5818ca7f145a80ad1.jpg');"
+        <div class="box2 pos-30" 
+             style="background-image: url('/images/sp10/_mg_0376_c09e8d4e483846b5818ca7f145a80ad1.jpg');"
              data-aos="fade-left" data-aos-duration="400" data-aos-delay="50">
         </div>
 
-        <div class="box" 
-             style="top:4743px; left:20px; background-image: url('/images/sp11/hapas_6-4-7446_39b5f76ee5f64efe8a3bd94b2370f913.jpg');"
+        <div class="box pos-31" 
+             style="background-image: url('/images/sp11/hapas_6-4-7446_39b5f76ee5f64efe8a3bd94b2370f913.jpg');"
              data-aos="fade-up" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box1" 
-             style="top:4744px; left:273px; background-image: url('images/sp11/hapas_6-4-7454_fce03e9bf0f041bf9bf0fa015fe9e68d.jpg');"
+        <div class="box1 pos-32" 
+             style="background-image: url('images/sp11/hapas_6-4-7454_fce03e9bf0f041bf9bf0fa015fe9e68d.jpg');"
              data-aos="fade-up" data-aos-duration="400" data-aos-delay="50">
         </div>
         
-        <div class="box2" 
-             style="top:4888px; left:272px; background-image: url('/images/sp11/hapas_6-4-7459_dd86aa3a270c44c4a06f7bc6ebb868b8.jpg');"
+        <div class="box2 pos-33" 
+             style="background-image: url('/images/sp11/hapas_6-4-7459_dd86aa3a270c44c4a06f7bc6ebb868b8.jpg');"
              data-aos="fade-up" data-aos-duration="400" data-aos-delay="50">
         </div>
     </div>
